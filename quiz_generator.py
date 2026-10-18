@@ -4,10 +4,14 @@ import argparse
 import json
 import os
 import sys
+from pathlib import Path
 from typing import Literal
 
+from dotenv import load_dotenv
 from openai import OpenAI, OpenAIError
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
+
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 
 class Options(BaseModel):
